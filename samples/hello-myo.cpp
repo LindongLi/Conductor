@@ -416,6 +416,8 @@ void display(void){
     drawFlatQuad(); //draw the flat plane
     renderListOfParticles(); // draw all the particles in the list of particles
     
+    
+    
     glutSwapBuffers(); //swap the frame buffers
 }
 /*

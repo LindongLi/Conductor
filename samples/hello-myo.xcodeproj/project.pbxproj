@@ -36,12 +36,11 @@
 		4D1F5A95192655EE002845BB /* hello-myo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hello-myo"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0677C51B63E7EB00E443F3 /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayer.cpp; sourceTree = SOURCE_ROOT; };
 		5A0677C61B63E7EB00E443F3 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = SOURCE_ROOT; };
-		5A0677C71B63E7EB00E443F3 /* elements */ = {isa = PBXFileReference; lastKnownFileType = folder; path = elements; sourceTree = SOURCE_ROOT; };
 		5A0677CB1B63E91F00E443F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5A0677CD1B63E92C00E443F3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C4646CD81B640EB3002E4DEA /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		C4646CDA1B640EBB002E4DEA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C4646CDC1B640EE9002E4DEA /* particle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = particle.h; path = ../../../Particles/Particles/particle.h; sourceTree = "<group>"; };
+		C4646CDD1B6444A0002E4DEA /* particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +81,7 @@
 			children = (
 				5A0677C51B63E7EB00E443F3 /* AudioPlayer.cpp */,
 				5A0677C61B63E7EB00E443F3 /* AudioPlayer.h */,
-				C4646CDC1B640EE9002E4DEA /* particle.h */,
-				5A0677C71B63E7EB00E443F3 /* elements */,
+				C4646CDD1B6444A0002E4DEA /* particle.h */,
 				4D04ADE419266DE6006E1C84 /* hello-myo.cpp */,
 			);
 			path = "hello-myo";
