@@ -41,6 +41,13 @@
 		C4646CD81B640EB3002E4DEA /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		C4646CDA1B640EBB002E4DEA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C4646CDD1B6444A0002E4DEA /* particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particle.h; sourceTree = "<group>"; };
+		C4646CDF1B6451E6002E4DEA /* do.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = do.mp3; sourceTree = "<group>"; };
+		C4646CE01B6451E6002E4DEA /* fa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fa.mp3; sourceTree = "<group>"; };
+		C4646CE11B6451E6002E4DEA /* la.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = la.mp3; sourceTree = "<group>"; };
+		C4646CE21B6451E6002E4DEA /* mi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mi.mp3; sourceTree = "<group>"; };
+		C4646CE31B6451E6002E4DEA /* re.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = re.mp3; sourceTree = "<group>"; };
+		C4646CE41B6451E6002E4DEA /* si.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = si.mp3; sourceTree = "<group>"; };
+		C4646CE51B6451E6002E4DEA /* sol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sol.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +72,7 @@
 				4D1F5A97192655EE002845BB /* hello-myo */,
 				4D1F5AA31926563B002845BB /* Frameworks */,
 				4D1F5A96192655EE002845BB /* Products */,
+				C4646CDE1B6451E6002E4DEA /* elements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +106,20 @@
 			);
 			name = Frameworks;
 			path = "hello-myo";
+			sourceTree = "<group>";
+		};
+		C4646CDE1B6451E6002E4DEA /* elements */ = {
+			isa = PBXGroup;
+			children = (
+				C4646CDF1B6451E6002E4DEA /* do.mp3 */,
+				C4646CE01B6451E6002E4DEA /* fa.mp3 */,
+				C4646CE11B6451E6002E4DEA /* la.mp3 */,
+				C4646CE21B6451E6002E4DEA /* mi.mp3 */,
+				C4646CE31B6451E6002E4DEA /* re.mp3 */,
+				C4646CE41B6451E6002E4DEA /* si.mp3 */,
+				C4646CE51B6451E6002E4DEA /* sol.mp3 */,
+			);
+			path = elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

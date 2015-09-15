@@ -33,15 +33,19 @@ list<particle> listOfParticles;
 
 #include <thread>
 
+#include <vector>
+int wavetarget;
+vector<float> waveline(15);
+
 
 const char* elements[7]  = {
-    "/Users/Lindong/Desktop/sdk/samples/elements/do.mp3",
-    "/Users/Lindong/Desktop/sdk/samples/elements/re.mp3",
-    "/Users/Lindong/Desktop/sdk/samples/elements/mi.mp3",
-    "/Users/Lindong/Desktop/sdk/samples/elements/fa.mp3",
-    "/Users/Lindong/Desktop/sdk/samples/elements/sol.mp3",
-    "/Users/Lindong/Desktop/sdk/samples/elements/la.mp3",
-    "/Users/Lindong/Desktop/sdk/samples/elements/si.mp3"
+    "/Users/Lindong/Desktop/Conductor/samples/elements/do.mp3",
+    "/Users/Lindong/Desktop/Conductor/samples/elements/re.mp3",
+    "/Users/Lindong/Desktop/Conductor/samples/elements/mi.mp3",
+    "/Users/Lindong/Desktop/Conductor/samples/elements/fa.mp3",
+    "/Users/Lindong/Desktop/Conductor/samples/elements/sol.mp3",
+    "/Users/Lindong/Desktop/Conductor/samples/elements/la.mp3",
+    "/Users/Lindong/Desktop/Conductor/samples/elements/si.mp3"
 };
 
 
@@ -52,6 +56,8 @@ int musicbook[63]={
     2,2,3,1,2,3,4,3,1,2,3,4,3,2,1,2,5,3,
     3,3,4,5,5,4,3,2,1,1,2,3,2,1,1
 };
+
+#include <time.h>
 
 int musicCount = 0;
 
@@ -72,7 +78,7 @@ void playtask(const char *id)
 
 class DataCollector : public myo::DeviceListener {
     
-       float history_pitch;
+    float history_pitch;
     
 public:
     DataCollector()
@@ -108,7 +114,7 @@ public:
     
     
     void onGyroscopeData	(myo::Myo * myo, uint64_t timestamp, const myo::Vector3< float > & gyro){
-    
+        
         
         gyroX = gyro.x();
         gyroY = gyro.y();
@@ -210,21 +216,24 @@ public:
         
         
         
-        std::cout << gyroZ<<"\n";
+        //std::cout << gyroZ<<"\n";
         
         
+        static clock_t lasttime, nowtime;
+        nowtime = clock();
         
-       
-        
-        if(onArm && (gyroZ > 250)){
+        if(onArm && (gyroZ < -240) && ((lasttime + 50000) < nowtime)){
+            
+            cout << nowtime - lasttime << '\n';
+            
+            lasttime = nowtime;
             
             
-
-            
-            std::cout << sum << "\n";
+            //std::cout << sum << "\n";
             
             thread t1(playtask, elements[musicbook[musicCount] - 1]);
             t1.detach();
+            wavetarget = musicbook[musicCount] - 1;
             
             musicCount = (musicCount + 1) % 63;
             
@@ -234,24 +243,24 @@ public:
         
         
         
-//        std::cout << accelX << "\n";
-//        
-//        
-//        if (onArm && accelX < -1)  {
-//            
-//            history_pitch = 0.98f * history_pitch + 0.02f * pitch_w;
-//            
-//            if(pitch_w > (history_pitch + 50))
-//            {
-//                
-//                thread t1(playtask, elements[musicbook[musicCount] - 1]);
-//                t1.detach();
-//                
-//                musicCount = (musicCount + 1) % 63;
-//        
-//                bumpMethod();
-//            }
-//        }
+        //        std::cout << accelX << "\n";
+        //
+        //
+        //        if (onArm && accelX < -1)  {
+        //
+        //            history_pitch = 0.98f * history_pitch + 0.02f * pitch_w;
+        //
+        //            if(pitch_w > (history_pitch + 50))
+        //            {
+        //
+        //                thread t1(playtask, elements[musicbook[musicCount] - 1]);
+        //                t1.detach();
+        //
+        //                musicCount = (musicCount + 1) % 63;
+        //
+        //                bumpMethod();
+        //            }
+        //        }
         
         /*
          if(accelZ < -2){
@@ -416,7 +425,27 @@ void display(void){
     drawFlatQuad(); //draw the flat plane
     renderListOfParticles(); // draw all the particles in the list of particles
     
+    glBegin(GL_LINE_STRIP);
+    for(int i = 0; i < waveline.size(); ++i)
+    {
+        glVertex3f(10, waveline[i] + 16.95f, i - 7);
+    }
+    glEnd();
+    glBegin(GL_LINE_STRIP);
+    for(int i = 0; i < waveline.size(); ++i)
+    {
+        glVertex3f(10, waveline[i] + 17.0f, i - 7);
+    }
+    glEnd();
+    static int update_count = 5;
+    if(--update_count == 0)
+    {
+        update_count = 5;
+        waveline.insert(waveline.begin(), waveline.front() * 0.5f + wavetarget * 0.25f);
+        waveline.erase(waveline.end() - 1);
+    }
     
+    //std::cout << waveline.back() << endl;
     
     glutSwapBuffers(); //swap the frame buffers
 }
@@ -543,7 +572,7 @@ int main(int argc, char** argv)
         
         glutMainLoop();	//starts the main loop
         // Finally we enter our main loop.
-
+        
         
         // If a standard exception occurred, we print out its message and exit.
     } catch (const std::exception& e) {
